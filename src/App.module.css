@@ -1,0 +1,17 @@
+.container {
+	width: 40vw;
+	margin: auto;
+	margin-top: 20vh;
+}
+.state {
+	width: 800px;
+	margin: 0 auto;
+}
+.checkBox {
+	position: absolute;
+}
+.dropdown {
+	position: inherit;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
