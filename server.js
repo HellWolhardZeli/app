@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const fs = require('fs');
+var bodyParser = require('body-parser');
+
+var jsonParser = bodyParser.json();
 
 var corsOptions = {
 	origin: 'http://localhost:3000',
@@ -17,5 +20,8 @@ app.get('/data', (req, res) => {
 	data = JSON.parse(data);
 	console.log('sent');
 	res.send(data);
+});
+app.post('/post', jsonParser, (req, res) => {
+	console.log(req.body);
 });
 app.listen(5000);

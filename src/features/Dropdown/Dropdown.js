@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import styles from './Dropdown.module.css';
 
@@ -7,17 +7,16 @@ export default function Dropdown({
 	items,
 	areSelected,
 	handleOnChange,
+	allSelected,
 }) {
-	const [isOpen, setIsOpen] = useState(false);
+	const [isOpen, setIsOpen] = useState();
 
-	// useEffect(() => {
-	// 	if (allSelected) {
-	// 		setAreSelected(items);
-	// 		setIsOpen(true);
-	// 	} else {
-	// 		setAreSelected([]);
-	// 	}
-	// }, [allSelected, items, setAreSelected]);
+	useEffect(() => {
+		if (allSelected) {
+			setIsOpen(true);
+		} else {
+		}
+	}, [allSelected, items]);
 
 	return (
 		<div>
@@ -35,7 +34,9 @@ export default function Dropdown({
 							<input
 								type='checkbox'
 								checked={
-									areSelected.find((arr) => arr.id === item.id) ? true : false
+									areSelected.find((arr) => arr.name === item.name)
+										? true
+										: false
 								}
 								onChange={() => {
 									handleOnChange(item);
